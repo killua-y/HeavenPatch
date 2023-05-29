@@ -1,419 +1,338 @@
 fileFormatVersion: 2
-guid: 5f58e04b0c4cdc7459d6364c42d4d119
+guid: 4128a56f72d26e144a88b2ea57e39f66
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable:
   - first:
       1: 100000
-    second: //RootNode
+    second: Polygonal Wolf
   - first:
       1: 100002
-    second: Rig
-  - first:
-      1: 100004
-    second: RigButt
-  - first:
-      1: 100006
-    second: RigButtGizmo
-  - first:
-      1: 100008
-    second: RigHead
-  - first:
-      1: 100010
-    second: RigHeadGizmo
-  - first:
-      1: 100012
-    second: RigLLegBack1
-  - first:
-      1: 100014
-    second: RigLLegBack2
-  - first:
-      1: 100016
-    second: RigLLegBack3
-  - first:
-      1: 100018
-    second: RigLLegBack4
-  - first:
-      1: 100020
-    second: RigLLegBackAnkle
-  - first:
-      1: 100022
-    second: RigLLegBackPlatform
-  - first:
-      1: 100024
-    second: RigLLegCtr1
-  - first:
-      1: 100026
-    second: RigLLegCtr2
-  - first:
-      1: 100028
-    second: RigLLegCtr3
-  - first:
-      1: 100030
-    second: RigLLegCtr4
-  - first:
-      1: 100032
-    second: RigLLegCtrAnkle
-  - first:
-      1: 100034
-    second: RigLLegCtrPlatform
-  - first:
-      1: 100036
-    second: RigLLegFront1
-  - first:
-      1: 100038
-    second: RigLLegFront2
-  - first:
-      1: 100040
-    second: RigLLegFront3
-  - first:
-      1: 100042
-    second: RigLLegFront4
-  - first:
-      1: 100044
-    second: RigLLegFrontAnkle
-  - first:
-      1: 100046
-    second: RigLLegFrontPlatform
-  - first:
-      1: 100048
-    second: RigLLegMid1
-  - first:
-      1: 100050
-    second: RigLLegMid2
-  - first:
-      1: 100052
-    second: RigLLegMid3
-  - first:
-      1: 100054
-    second: RigLLegMid4
-  - first:
-      1: 100056
-    second: RigLLegMidAnkle
-  - first:
-      1: 100058
-    second: RigLLegMidPlatform
-  - first:
-      1: 100060
-    second: RigMouthL01
-  - first:
-      1: 100062
-    second: RigMouthL01Gizmo
-  - first:
-      1: 100064
-    second: RigMouthL02
-  - first:
-      1: 100066
-    second: RigMouthL02Gizmo
-  - first:
-      1: 100068
-    second: RigMouthR01
-  - first:
-      1: 100070
-    second: RigMouthR01Gizmo
-  - first:
-      1: 100072
-    second: RigMouthR02
-  - first:
-      1: 100074
-    second: RigMouthR02Gizmo
-  - first:
-      1: 100076
-    second: RigNeck
-  - first:
-      1: 100078
-    second: RigRibcage
-  - first:
-      1: 100080
-    second: RigRibcageGizmo
-  - first:
-      1: 100082
-    second: RigRLegBack1
-  - first:
-      1: 100084
-    second: RigRLegBack2
-  - first:
-      1: 100086
-    second: RigRLegBack3
-  - first:
-      1: 100088
-    second: RigRLegBack4
-  - first:
-      1: 100090
-    second: RigRLegBackAnkle
-  - first:
-      1: 100092
-    second: RigRLegBackPlatform
-  - first:
-      1: 100094
-    second: RigRLegCtr1
-  - first:
-      1: 100096
-    second: RigRLegCtr2
-  - first:
-      1: 100098
-    second: RigRLegCtr3
-  - first:
-      1: 100100
-    second: RigRLegCtr4
-  - first:
-      1: 100102
-    second: RigRLegCtrAnkle
-  - first:
-      1: 100104
-    second: RigRLegCtrPlatform
-  - first:
-      1: 100106
-    second: RigRLegFront1
-  - first:
-      1: 100108
-    second: RigRLegFront2
-  - first:
-      1: 100110
-    second: RigRLegFront3
-  - first:
-      1: 100112
-    second: RigRLegFront4
-  - first:
-      1: 100114
-    second: RigRLegFrontAnkle
-  - first:
-      1: 100116
-    second: RigRLegFrontPlatform
-  - first:
-      1: 100118
-    second: RigRLegMid1
-  - first:
-      1: 100120
-    second: RigRLegMid2
-  - first:
-      1: 100122
-    second: RigRLegMid3
-  - first:
-      1: 100124
-    second: RigRLegMid4
-  - first:
-      1: 100126
-    second: RigRLegMidAnkle
-  - first:
-      1: 100128
-    second: RigRLegMidPlatform
-  - first:
-      1: 100130
-    second: RigSpine
-  - first:
-      1: 100132
-    second: Spiderling Venom
-  - first:
-      4: 400000
     second: //RootNode
   - first:
-      4: 400002
+      1: 100004
     second: Rig
   - first:
-      4: 400004
-    second: RigButt
+      1: 100006
+    second: RigBLLeg1
   - first:
-      4: 400006
-    second: RigButtGizmo
+      1: 100008
+    second: RigBLLeg2
   - first:
-      4: 400008
+      1: 100010
+    second: RigBLLeg3
+  - first:
+      1: 100012
+    second: RigBLLegAnkle
+  - first:
+      1: 100014
+    second: RigBLLegFoot1
+  - first:
+      1: 100016
+    second: RigBLLegFoot2
+  - first:
+      1: 100018
+    second: RigBLLegPlatform
+  - first:
+      1: 100020
+    second: RigBRLeg1
+  - first:
+      1: 100022
+    second: RigBRLeg2
+  - first:
+      1: 100024
+    second: RigBRLeg3
+  - first:
+      1: 100026
+    second: RigBRLegAnkle
+  - first:
+      1: 100028
+    second: RigBRLegFoot1
+  - first:
+      1: 100030
+    second: RigBRLegFoot2
+  - first:
+      1: 100032
+    second: RigBRLegPlatform
+  - first:
+      1: 100034
+    second: RigFLLeg1
+  - first:
+      1: 100036
+    second: RigFLLeg2
+  - first:
+      1: 100038
+    second: RigFLLegAnkle
+  - first:
+      1: 100040
+    second: RigFLLegFoot1
+  - first:
+      1: 100042
+    second: RigFLLegFoot2
+  - first:
+      1: 100044
+    second: RigFLLegPlatform
+  - first:
+      1: 100046
+    second: RigFRLeg1
+  - first:
+      1: 100048
+    second: RigFRLeg2
+  - first:
+      1: 100050
+    second: RigFRLegAnkle
+  - first:
+      1: 100052
+    second: RigFRLegFoot1
+  - first:
+      1: 100054
+    second: RigFRLegFoot2
+  - first:
+      1: 100056
+    second: RigFRLegPlatform
+  - first:
+      1: 100058
     second: RigHead
   - first:
-      4: 400010
+      1: 100060
     second: RigHeadGizmo
   - first:
-      4: 400012
-    second: RigLLegBack1
+      1: 100062
+    second: RigJaw
   - first:
-      4: 400014
-    second: RigLLegBack2
+      1: 100064
+    second: RigJawGizmo
   - first:
-      4: 400016
-    second: RigLLegBack3
+      1: 100066
+    second: RigNeck1
   - first:
-      4: 400018
-    second: RigLLegBack4
+      1: 100068
+    second: RigNeck2
   - first:
-      4: 400020
-    second: RigLLegBackAnkle
+      1: 100070
+    second: RigPelvis
   - first:
-      4: 400022
-    second: RigLLegBackPlatform
+      1: 100072
+    second: RigPelvisGizmo
   - first:
-      4: 400024
-    second: RigLLegCtr1
-  - first:
-      4: 400026
-    second: RigLLegCtr2
-  - first:
-      4: 400028
-    second: RigLLegCtr3
-  - first:
-      4: 400030
-    second: RigLLegCtr4
-  - first:
-      4: 400032
-    second: RigLLegCtrAnkle
-  - first:
-      4: 400034
-    second: RigLLegCtrPlatform
-  - first:
-      4: 400036
-    second: RigLLegFront1
-  - first:
-      4: 400038
-    second: RigLLegFront2
-  - first:
-      4: 400040
-    second: RigLLegFront3
-  - first:
-      4: 400042
-    second: RigLLegFront4
-  - first:
-      4: 400044
-    second: RigLLegFrontAnkle
-  - first:
-      4: 400046
-    second: RigLLegFrontPlatform
-  - first:
-      4: 400048
-    second: RigLLegMid1
-  - first:
-      4: 400050
-    second: RigLLegMid2
-  - first:
-      4: 400052
-    second: RigLLegMid3
-  - first:
-      4: 400054
-    second: RigLLegMid4
-  - first:
-      4: 400056
-    second: RigLLegMidAnkle
-  - first:
-      4: 400058
-    second: RigLLegMidPlatform
-  - first:
-      4: 400060
-    second: RigMouthL01
-  - first:
-      4: 400062
-    second: RigMouthL01Gizmo
-  - first:
-      4: 400064
-    second: RigMouthL02
-  - first:
-      4: 400066
-    second: RigMouthL02Gizmo
-  - first:
-      4: 400068
-    second: RigMouthR01
-  - first:
-      4: 400070
-    second: RigMouthR01Gizmo
-  - first:
-      4: 400072
-    second: RigMouthR02
-  - first:
-      4: 400074
-    second: RigMouthR02Gizmo
-  - first:
-      4: 400076
-    second: RigNeck
-  - first:
-      4: 400078
+      1: 100074
     second: RigRibcage
   - first:
-      4: 400080
+      1: 100076
     second: RigRibcageGizmo
   - first:
+      1: 100078
+    second: RigSpine1
+  - first:
+      1: 100080
+    second: RigSpine2
+  - first:
+      1: 100082
+    second: RigSpine3
+  - first:
+      1: 100084
+    second: RigTail1
+  - first:
+      1: 100086
+    second: RigTail2
+  - first:
+      1: 100088
+    second: RigTail2Gizmo
+  - first:
+      1: 100090
+    second: RigTail3
+  - first:
+      1: 100092
+    second: RigTail3Gizmo
+  - first:
+      1: 100094
+    second: RigTail4
+  - first:
+      1: 100096
+    second: RigTail4Gizmo
+  - first:
+      1: 100098
+    second: RigTail5
+  - first:
+      1: 100100
+    second: RigTail5Gizmo
+  - first:
+      1: 100102
+    second: RigTail6
+  - first:
+      1: 100104
+    second: RigTail6Gizmo
+  - first:
+      4: 400000
+    second: Polygonal Wolf
+  - first:
+      4: 400002
+    second: //RootNode
+  - first:
+      4: 400004
+    second: Rig
+  - first:
+      4: 400006
+    second: RigBLLeg1
+  - first:
+      4: 400008
+    second: RigBLLeg2
+  - first:
+      4: 400010
+    second: RigBLLeg3
+  - first:
+      4: 400012
+    second: RigBLLegAnkle
+  - first:
+      4: 400014
+    second: RigBLLegFoot1
+  - first:
+      4: 400016
+    second: RigBLLegFoot2
+  - first:
+      4: 400018
+    second: RigBLLegPlatform
+  - first:
+      4: 400020
+    second: RigBRLeg1
+  - first:
+      4: 400022
+    second: RigBRLeg2
+  - first:
+      4: 400024
+    second: RigBRLeg3
+  - first:
+      4: 400026
+    second: RigBRLegAnkle
+  - first:
+      4: 400028
+    second: RigBRLegFoot1
+  - first:
+      4: 400030
+    second: RigBRLegFoot2
+  - first:
+      4: 400032
+    second: RigBRLegPlatform
+  - first:
+      4: 400034
+    second: RigFLLeg1
+  - first:
+      4: 400036
+    second: RigFLLeg2
+  - first:
+      4: 400038
+    second: RigFLLegAnkle
+  - first:
+      4: 400040
+    second: RigFLLegFoot1
+  - first:
+      4: 400042
+    second: RigFLLegFoot2
+  - first:
+      4: 400044
+    second: RigFLLegPlatform
+  - first:
+      4: 400046
+    second: RigFRLeg1
+  - first:
+      4: 400048
+    second: RigFRLeg2
+  - first:
+      4: 400050
+    second: RigFRLegAnkle
+  - first:
+      4: 400052
+    second: RigFRLegFoot1
+  - first:
+      4: 400054
+    second: RigFRLegFoot2
+  - first:
+      4: 400056
+    second: RigFRLegPlatform
+  - first:
+      4: 400058
+    second: RigHead
+  - first:
+      4: 400060
+    second: RigHeadGizmo
+  - first:
+      4: 400062
+    second: RigJaw
+  - first:
+      4: 400064
+    second: RigJawGizmo
+  - first:
+      4: 400066
+    second: RigNeck1
+  - first:
+      4: 400068
+    second: RigNeck2
+  - first:
+      4: 400070
+    second: RigPelvis
+  - first:
+      4: 400072
+    second: RigPelvisGizmo
+  - first:
+      4: 400074
+    second: RigRibcage
+  - first:
+      4: 400076
+    second: RigRibcageGizmo
+  - first:
+      4: 400078
+    second: RigSpine1
+  - first:
+      4: 400080
+    second: RigSpine2
+  - first:
       4: 400082
-    second: RigRLegBack1
+    second: RigSpine3
   - first:
       4: 400084
-    second: RigRLegBack2
+    second: RigTail1
   - first:
       4: 400086
-    second: RigRLegBack3
+    second: RigTail2
   - first:
       4: 400088
-    second: RigRLegBack4
+    second: RigTail2Gizmo
   - first:
       4: 400090
-    second: RigRLegBackAnkle
+    second: RigTail3
   - first:
       4: 400092
-    second: RigRLegBackPlatform
+    second: RigTail3Gizmo
   - first:
       4: 400094
-    second: RigRLegCtr1
+    second: RigTail4
   - first:
       4: 400096
-    second: RigRLegCtr2
+    second: RigTail4Gizmo
   - first:
       4: 400098
-    second: RigRLegCtr3
+    second: RigTail5
   - first:
       4: 400100
-    second: RigRLegCtr4
+    second: RigTail5Gizmo
   - first:
       4: 400102
-    second: RigRLegCtrAnkle
+    second: RigTail6
   - first:
       4: 400104
-    second: RigRLegCtrPlatform
-  - first:
-      4: 400106
-    second: RigRLegFront1
-  - first:
-      4: 400108
-    second: RigRLegFront2
-  - first:
-      4: 400110
-    second: RigRLegFront3
-  - first:
-      4: 400112
-    second: RigRLegFront4
-  - first:
-      4: 400114
-    second: RigRLegFrontAnkle
-  - first:
-      4: 400116
-    second: RigRLegFrontPlatform
-  - first:
-      4: 400118
-    second: RigRLegMid1
-  - first:
-      4: 400120
-    second: RigRLegMid2
-  - first:
-      4: 400122
-    second: RigRLegMid3
-  - first:
-      4: 400124
-    second: RigRLegMid4
-  - first:
-      4: 400126
-    second: RigRLegMidAnkle
-  - first:
-      4: 400128
-    second: RigRLegMidPlatform
-  - first:
-      4: 400130
-    second: RigSpine
-  - first:
-      4: 400132
-    second: Spiderling Venom
+    second: RigTail6Gizmo
   - first:
       43: 4300000
-    second: Spiderling Venom
+    second: Polygonal Wolf
+  - first:
+      74: 7400000
+    second: Bite Attack
   - first:
       95: 9500000
     second: //RootNode
   - first:
       137: 13700000
-    second: Spiderling Venom
+    second: Polygonal Wolf
   externalObjects: {}
   materials:
     materialImportMode: 0
@@ -442,7 +361,36 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Bite Attack
+      takeName: Take 001
+      internalID: 7400000
+      firstFrame: 0
+      lastFrame: 35
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
@@ -486,11 +434,7 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
-  referencedClips:
-  - eda7f3b603726ae408fdb4fba9781800
-  - 7f2b93e111ee5bf4491861c511a65d05
-  - ac22ee9791a96ad43912279a2e309878
-  - 7ff67986a841bb34a85c8ba9bef179a0
+  referencedClips: []
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
