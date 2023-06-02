@@ -41,5 +41,6 @@ public class PlayerHealth : MonoBehaviour
     void PlayerDies()
     {
         Debug.Log("Player is dead ...");
+        GetComponent<PlayerController>().anim.SetInteger("States", 2);
     }
 }

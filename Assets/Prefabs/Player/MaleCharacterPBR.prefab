@@ -786,7 +786,6 @@ GameObject:
   - component: {fileID: 6090615334093753339}
   - component: {fileID: 6545625316384858916}
   - component: {fileID: 3120254067158588860}
-  - component: {fileID: 4903294922055965748}
   m_Layer: 0
   m_Name: MaleCharacterPBR
   m_TagString: Player
@@ -897,6 +896,7 @@ MonoBehaviour:
   jumpHeight: 10
   gravity: 9.81
   airControl: 10
+  anim: {fileID: 0}
 --- !u!114 &6545625316384858916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -911,21 +911,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
 --- !u!114 &3120254067158588860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2820058345107708052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fffbd2c05b9e92541b7afe740d692abe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EXPToUpgrade: 100
-  expSlider: {fileID: 0}
-  levelText: {fileID: 0}
---- !u!114 &4903294922055965748
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

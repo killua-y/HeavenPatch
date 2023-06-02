@@ -6,7 +6,9 @@ public class WeaponController : MonoBehaviour
 {
     public Transform player;
     public GameObject SwordPrefab;
+    public GameObject MacePrefab;
     public float SwordSpawnTime = 4f;
+    public float MaceSpawnTime = 4f;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,6 +18,7 @@ public class WeaponController : MonoBehaviour
         }
 
         InvokeRepeating("SwordSpawn", 1, SwordSpawnTime);
+        InvokeRepeating("MaceSpawn", 1, MaceSpawnTime);
     }
 
     // Update is called once per frame
@@ -26,12 +29,23 @@ public class WeaponController : MonoBehaviour
 
     void SwordSpawn()
     {
-        Quaternion SwordRotation = Quaternion.Euler(-90, 0, 0);
-        Vector3 SwordPosition = transform.position;
+        Quaternion WeaponRotation = Quaternion.Euler(-90, 0, 0);
+        Vector3 WeaponPosition = transform.position;
 
 
-        GameObject spawnedSword = Instantiate(SwordPrefab, SwordPosition, SwordRotation)
+        GameObject spawnedSword = Instantiate(SwordPrefab, WeaponPosition, WeaponRotation)
         as GameObject;
+
+        spawnedSword.transform.parent = gameObject.transform;
+    }
+    
+    void MaceSpawn()
+    {
+        Quaternion WeaponRotation = player.transform.rotation;
+        Vector3 WeaponPosition = new Vector3(transform.position.x + 1, transform.position.y + 3, transform.position.z);
+        
+        GameObject spawnedSword = Instantiate(MacePrefab, WeaponPosition, WeaponRotation)
+            as GameObject;
 
         spawnedSword.transform.parent = gameObject.transform;
     }

@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 10;
     public float gravity = 9.81f;
     public float airControl = 10;
+    [HideInInspector] public Animator anim;
     CharacterController controller;
     Vector3 input, moveDirection;
     
@@ -15,6 +16,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
+        anim.SetInteger("States", 0);
     }
 
     // Update is called once per frame
@@ -48,5 +51,17 @@ public class PlayerController : MonoBehaviour
 
         controller.Move(moveDirection * Time.deltaTime);
 
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        {
+            anim.SetInteger("States", 1);
+        }
+        else if(Input.GetKey(KeyCode.S))
+        {
+            anim.SetInteger("States", -1);
+        }
+        else
+        {
+            anim.SetInteger("States", 0);
+        }
     }
 }
