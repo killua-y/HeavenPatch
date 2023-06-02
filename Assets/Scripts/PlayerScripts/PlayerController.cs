@@ -8,7 +8,6 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 10;
     public float gravity = 9.81f;
     public float airControl = 10;
-    public static int playerATK = 10;
     CharacterController controller;
     Vector3 input, moveDirection;
     

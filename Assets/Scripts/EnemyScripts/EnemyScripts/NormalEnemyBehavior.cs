@@ -18,9 +18,10 @@ public class NormalEnemyBehavior : MonoBehaviour
     {
         float step = moveSpeed * Time.deltaTime;
         float distance = Vector3.Distance(transform.position, player.position);
+        var EnemyHit = gameObject.GetComponent<NormalEnemyHit>();
         if (distance > range)
         {
-                if (!NormalEnemyHit.isDied)
+                if (!EnemyHit.isDied)
                 {
                     transform.LookAt(player);
                     transform.position = Vector3.MoveTowards(transform.position, player.position, step);
@@ -35,12 +36,13 @@ public class NormalEnemyBehavior : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (other.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
-            var playerHealth = other.GetComponent<PlayerHealth>();
+            var playerHealth = collision.gameObject.GetComponent<PlayerHealth>();
             playerHealth.TakeDamage(damageAmount);
         }
     }
+
 }

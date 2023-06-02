@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class NormalEnemyHit : MonoBehaviour
 {
-    public int enemyHealth = 10;
-    public static bool isDied;
+    public int enemyHealth = 20;
+    public bool isDied;
     private int currentHealth;
     void Start()
     {
@@ -16,16 +16,16 @@ public class NormalEnemyHit : MonoBehaviour
     
     void Update()
     {
+
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void TakeDamage(int damageAmount)
     {
-        Debug.Log("hit enemy");
-        if (other.CompareTag("Knife"))
+        if (currentHealth > 0)
         {
-            currentHealth -= PlayerController.playerATK;
-            
+            currentHealth -= damageAmount;
         }
+
         if (currentHealth <= 0)
         {
             isDied = true;
@@ -33,9 +33,15 @@ public class NormalEnemyHit : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+
+    }
+
     void DestroyEnemy()
     {
         gameObject.GetComponent<Animator>().SetTrigger("Die");
         Destroy(gameObject, 2f);
     }
+
 }
