@@ -5,9 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 10;
-    public float jumpHeight = 10;
     public float gravity = 9.81f;
-    public float airControl = 10;
     [HideInInspector] public Animator anim;
     CharacterController controller;
     Vector3 input, moveDirection;
@@ -26,40 +24,21 @@ public class PlayerController : MonoBehaviour
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
-        input = (transform.right * moveHorizontal + transform.forward * moveVertical).normalized;
+        input = (Vector3.right * moveHorizontal + Vector3.forward * moveVertical).normalized;
 
         input *= moveSpeed;
-
-        if (controller.isGrounded){
-            // we can jump
-            moveDirection = input;
-
-            if(Input.GetButton("Jump")){
-                moveDirection.y = Mathf.Sqrt(2 * jumpHeight * gravity);
-            }else {
-                moveDirection.y = 0.0f;
-            }
-
-
-        } else {
-            // we are in air
-            input.y = moveDirection.y;
-            moveDirection = Vector3.Lerp(moveDirection, input, airControl * Time.deltaTime);
-        }
+        
+        moveDirection = input;
 
         moveDirection.y -= gravity * Time.deltaTime;
 
         controller.Move(moveDirection * Time.deltaTime);
 
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
         {
             anim.SetInteger("States", 1);
         }
-        else if(Input.GetKey(KeyCode.S))
-        {
-            anim.SetInteger("States", -1);
-        }
-        else
+        else if (Input.GetKey(KeyCode.D))
         {
             anim.SetInteger("States", 0);
         }

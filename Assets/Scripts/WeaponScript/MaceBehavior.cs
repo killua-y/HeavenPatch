@@ -6,18 +6,17 @@ public class MaceBehavior : MonoBehaviour
 {
     public static int ATKDamage = 20;
     public float rotationSpeed = 300;
-    public Quaternion rotation = Quaternion.Euler(0, 0, 0);
     private float currentRotation = 0f;
 
     void Start()
     {
-
+        
     }
 
     void Update()
     {
         // Rotate the object around its Y-axis
-        transform.Rotate(Vector3.forward, rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.back, rotationSpeed * Time.deltaTime);
         currentRotation += rotationSpeed * Time.deltaTime;
 
         // Check if the object has completed a full rotation

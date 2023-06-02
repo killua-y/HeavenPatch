@@ -6,7 +6,6 @@ public class KnifeBehavior : MonoBehaviour
 {
     public static int ATKDamage = 10;
     public float rotationSpeed = 300;
-    public Quaternion rotation = Quaternion.Euler(-90, 0, 0);
     private float currentRotation = 0f;
 
     void Start()
