@@ -35,9 +35,12 @@ public class WeaponController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        weaponPosition = player.transform.position;
-        weaponRotation = player.transform.rotation;
-        transform.position = player.transform.position;
+        if (!LevelManager.isGameOver)
+        {
+            weaponPosition = player.transform.position;
+            weaponRotation = player.transform.rotation;
+            transform.position = player.transform.position;
+        }
     }
 
     void SwordSpawn()

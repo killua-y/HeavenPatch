@@ -8,6 +8,7 @@ public class PlayerEXP : MonoBehaviour
     public int EXPToUpgrade = 100;
     public Slider expSlider;
     public Text levelText;
+    public int winLevel;
     private int playerLevel;
     private int currentEXP;
 
@@ -38,7 +39,6 @@ public class PlayerEXP : MonoBehaviour
         {
             Upgrade();
         }
-
     }
 
     void Upgrade()
@@ -49,5 +49,10 @@ public class PlayerEXP : MonoBehaviour
         
         currentEXP = 0;
         expSlider.value = currentEXP;
+
+        if (playerLevel == winLevel)
+        {
+            FindObjectOfType<LevelManager>().LevelBeat();
+        }
     }
 }

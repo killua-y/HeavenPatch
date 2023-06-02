@@ -22,7 +22,7 @@ public class MemorialBehavior : MonoBehaviour
     void OnTriggerEnter(Collider other){
         if(other.CompareTag("Player")){
             SceneManager.LoadScene(nextLevel);
-            Debug.Log("load next level successfully!");
+            //Debug.Log("load next level successfully!");
         }
     }
 }

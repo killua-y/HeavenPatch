@@ -32,7 +32,7 @@ public class KnifeBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("hit enemy");
+        //Debug.Log("hit enemy");
         if(other.CompareTag("Enemy"))
         {
             var NormalEnemyHitScript = other.GetComponent<NormalEnemyHit>();
