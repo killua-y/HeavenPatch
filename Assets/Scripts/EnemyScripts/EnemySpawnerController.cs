@@ -188,7 +188,7 @@ public class EnemySpawnerController : MonoBehaviour
             }
 
             // 停止生成蜘蛛形怪物
-            SpiderSpawner.SetActive(false);
+            //SpiderSpawner.SetActive(false);
 
             // 生成狼形怪物
             WolfSpawner.SetActive(true);
@@ -201,14 +201,18 @@ public class EnemySpawnerController : MonoBehaviour
         else if (CurrentEnemyRemain == 50)
         {
             // 停止生成蜘蛛形怪物
-            SpiderSpawner.SetActive(false);
+            //SpiderSpawner.SetActive(false);
 
+            // 生成蜘蛛形怪物
+            SpiderSpawner.SetActive(true);
+            SpiderSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.5f);
+            
             // 生成狼形怪物
             WolfSpawner.SetActive(true);
             WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.2f);
 
             // 停止生成弓箭手怪物
-            ArcherSpawner.SetActive(false);
+            //ArcherSpawner.SetActive(false);
         }
         // 当怪物还剩25 到 0
         else if (CurrentEnemyRemain == 25)
@@ -220,10 +224,10 @@ public class EnemySpawnerController : MonoBehaviour
             }
 
             // 停止生成蜘蛛形怪物
-            SpiderSpawner.SetActive(false);
+            //SpiderSpawner.SetActive(false);
 
             // 生成狼形怪物
-            Debug.Log("Gethere");
+            //Debug.Log("Gethere");
             WolfSpawner.SetActive(true);
             WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.1f);
 

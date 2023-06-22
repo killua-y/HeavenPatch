@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.48331404, g: 0.2718595, b: 0.24274772, a: 1}
+  m_IndirectSpecularColor: {r: 0.45587087, g: 0.21660241, b: 0.14181706, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8536,7 +8536,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 157302210, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 157302212, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
       propertyPath: WeaponIconMask
@@ -8544,7 +8544,7 @@ PrefabInstance:
       objectReference: {fileID: 339310031}
     - target: {fileID: 1104995087, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1104995089, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
       propertyPath: WeaponIconMask
@@ -8568,7 +8568,7 @@ PrefabInstance:
       objectReference: {fileID: 959235027}
     - target: {fileID: 4714658192635618180, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4714658193370923550, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
       propertyPath: m_Name
@@ -8636,11 +8636,11 @@ PrefabInstance:
       objectReference: {fileID: 959235028}
     - target: {fileID: 4714658193686356279, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8040361684647304914, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8202722872322757778, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
       propertyPath: AxeIconMask
@@ -8652,7 +8652,7 @@ PrefabInstance:
       objectReference: {fileID: 339310033}
     - target: {fileID: 8380353564141159490, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
