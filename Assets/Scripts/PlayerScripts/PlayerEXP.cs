@@ -8,15 +8,16 @@ public class PlayerEXP : MonoBehaviour
     public int EXPToUpgrade = 100;
     public Slider expSlider;
     public Text levelText;
-    public int winLevel;
+    public static float expRate = 1;
     private int playerLevel;
-    private int currentEXP;
+    private float currentEXP;
 
     // Start is called before the first frame update
     void Start()
     {
         currentEXP = 0;
         playerLevel = 0;
+        expSlider.maxValue = EXPToUpgrade;
         expSlider.value = currentEXP;
         levelText.text = playerLevel.ToString();
     }
@@ -31,11 +32,11 @@ public class PlayerEXP : MonoBehaviour
     {
         if (currentEXP < EXPToUpgrade)
         {
-            currentEXP += expAmount;
+            currentEXP += expAmount * expRate;
             expSlider.value = currentEXP;
         }
 
-        if (currentEXP == EXPToUpgrade)
+        if (currentEXP >= EXPToUpgrade)
         {
             Upgrade();
         }
@@ -43,16 +44,27 @@ public class PlayerEXP : MonoBehaviour
 
     void Upgrade()
     {
-        Debug.Log("Level: " + playerLevel);
         playerLevel += 1;
         levelText.text = playerLevel.ToString();
         
-        currentEXP = 0;
+        currentEXP = currentEXP - EXPToUpgrade;
+        
+        gameObject.GetComponent<PlayerHealth>().TakeHealth(10);
+
+        // to make it become harder to upgrade
+        EXPToUpgrade = playerLevel + 3;
+        expSlider.maxValue = EXPToUpgrade;
         expSlider.value = currentEXP;
 
-        if (playerLevel == winLevel)
+        // 在特定等级的时候提供武器奖励，反之则是buff奖励
+        if((playerLevel == 1) || (playerLevel == 5) ||
+            (playerLevel == 10) || (playerLevel == 15))
         {
-            FindObjectOfType<LevelManager>().LevelBeat();
+            FindObjectOfType<LevelUpController>().WeaponSelect();
+        }
+        else
+        {
+            FindObjectOfType<LevelUpController>().LevelUp();
         }
     }
 }

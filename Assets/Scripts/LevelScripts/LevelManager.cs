@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour
 
     public AudioClip winSFX;
 
+    public GameObject PauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,12 +41,14 @@ public class LevelManager : MonoBehaviour
 
     public void LevelBeat()
     {
-        
         isGameOver = true;
         gameText.text = "You Win!";
         gameText.gameObject.SetActive(true);
         AudioSource.PlayClipAtPoint(winSFX, Camera.main.transform.position);
         Invoke("LoadNextLevel", 2);
+
+        // save the time played
+        PauseMenu.GetComponent<PauseMenuBehavior>().SaveTimer();
     }
     
     void LoadNextLevel(){
@@ -54,7 +58,6 @@ public class LevelManager : MonoBehaviour
 
     void LoadCurrentLevel()
     {
-        
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     

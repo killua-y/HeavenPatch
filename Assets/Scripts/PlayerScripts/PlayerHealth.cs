@@ -5,7 +5,10 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public int startingHealth = 100;
+    public int StartingHealth = 100;
+    public int MaxHealth = 100;
+    public static float defenseRate = 1;
+    public static float healthProportion = 1;
     public Slider healthSlider;
 
     int currentHealth;
@@ -13,21 +16,23 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = startingHealth;
+        currentHealth = StartingHealth;
         healthSlider.value = currentHealth;
+        MaxHealth = StartingHealth;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        MaxHealth = (int)(StartingHealth * healthProportion);
+        healthSlider.maxValue = MaxHealth;
     }
 
     public void TakeDamage(int damageAmount)
     {
         if (currentHealth > 0)
         {
-            currentHealth -= damageAmount;
+            currentHealth -= (int)(damageAmount/defenseRate);
             healthSlider.value = currentHealth;
         }
 
@@ -35,7 +40,15 @@ public class PlayerHealth : MonoBehaviour
         {
             PlayerDies();
         }
-
+    }
+    
+    public void TakeHealth(int healthAmount)
+    {
+        if (currentHealth > 0 && currentHealth < MaxHealth)
+        {
+            currentHealth += healthAmount;
+            healthSlider.value = currentHealth;
+        }
     }
 
     void PlayerDies()

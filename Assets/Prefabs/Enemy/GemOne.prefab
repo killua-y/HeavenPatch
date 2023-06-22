@@ -129,4 +129,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lootSFX: {fileID: 8300000, guid: cf5fd1fe590b34f70adac0e6820c9734, type: 3}
-  expAmount: 10
+  expAmount: 1

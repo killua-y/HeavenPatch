@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class RemoteAttackEnemy1_Behavior : MonoBehaviour
 {
@@ -15,11 +16,10 @@ public class RemoteAttackEnemy1_Behavior : MonoBehaviour
     public float moveSpeed = 3f;
 
     public GameObject player;
-    public GameObject bulletPrefab; 
+    public GameObject bulletPrefab;
     public float bulletSpeed = 20f;
     public FSMStates currentState;
-
-    
+    NavMeshAgent agent;
 
     private float attackCooldown = 2f;  
     private float distance;
@@ -32,6 +32,7 @@ public class RemoteAttackEnemy1_Behavior : MonoBehaviour
         currentState = FSMStates.Chase;
         player = GameObject.FindGameObjectWithTag("Player"); 
         anim = GetComponent<Animator>();
+        agent = GetComponent<NavMeshAgent>();
         InvokeRepeating("Attack", 1f, attackCooldown);
     }
 
@@ -64,8 +65,9 @@ public class RemoteAttackEnemy1_Behavior : MonoBehaviour
             //Debug.Log("In the range now!");
             currentState = FSMStates.Attack;          
         }
-        
-        transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
+
+        agent.SetDestination(player.transform.position);
+        //transform.position = Vector3.MoveTowards(transform.position, player.transform.position, step);
         
     }
 

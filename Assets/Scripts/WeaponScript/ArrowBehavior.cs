@@ -5,10 +5,11 @@ using UnityEngine;
 public class ArrowBehavior : MonoBehaviour
 {
     public static int ATKDamage = 5;
+    public Vector3 originalScale;
 
     void Start()
     {
-
+        
     }
 
     void Update()
@@ -18,11 +19,20 @@ public class ArrowBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // 施加伤害修正
+        float newDamge = ATKDamage * WeaponController.damgeMultipler;
+        int newDamgeInt = Mathf.RoundToInt(newDamge);
+
         //Debug.Log("hit enemy");
-        if(other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
             var NormalEnemyHitScript = other.GetComponent<NormalEnemyHit>();
-            NormalEnemyHitScript.TakeDamage(ATKDamage);
+            NormalEnemyHitScript.TakeDamage(newDamgeInt);
+        }
+        if (other.CompareTag("Boss_Fire"))
+        {
+            var BossHitScript = other.GetComponent<Boss_Fire_Health>();
+            BossHitScript.TakeDamage(ATKDamage);
         }
     }
 }

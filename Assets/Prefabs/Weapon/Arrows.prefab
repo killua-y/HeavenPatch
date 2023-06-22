@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 8148291714363131495}
   m_Layer: 0
   m_Name: Arrows
-  m_TagString: Enemy
+  m_TagString: Knife
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -296,6 +296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ae7a91fd8adf46498228a38466ae5fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  originalScale: {x: 0, y: 0, z: 0}
 --- !u!1 &8769405869729487376
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 public class NormalEnemyBehavior : MonoBehaviour
 {
@@ -9,8 +11,11 @@ public class NormalEnemyBehavior : MonoBehaviour
     public float range = 1f;
     public int damageAmount = 10;
     private Transform player;
+    NavMeshAgent agent;
+
     void Start()
     {
+        agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     
@@ -26,7 +31,8 @@ public class NormalEnemyBehavior : MonoBehaviour
                 if (!EnemyHit.isDied)
                 {
                     transform.LookAt(player);
-                    transform.position = Vector3.MoveTowards(transform.position, player.position, step);
+                    agent.SetDestination(player.position);
+                    //transform.position = Vector3.MoveTowards(transform.position, player.position, step);
                     gameObject.GetComponent<Animator>().SetBool("Attack", false);
                     gameObject.GetComponent<Animator>().SetBool("Move", true);
                 }

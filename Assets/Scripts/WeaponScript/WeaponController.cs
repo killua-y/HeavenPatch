@@ -5,17 +5,15 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     public Transform player;
-    public GameObject SwordPrefab;
-    public GameObject MacePrefab;
-    public GameObject ArrowPrefab;
-    public float SwordSpawnTime = 4f;
-    public float MaceSpawnTime = 4f;
-    public float ArrowSpawnTime = 2f;
 
-    private Vector3 weaponPosition;
+    public static float scaleMultipler = 1;
+    public static float coolDownMultipler = 1;
+    public static float damgeMultipler = 1;
+    public static float abilityHaste = 0;
 
-    private Quaternion weaponRotation;
-    
+    public static Vector3 weaponPosition;
+    public static Quaternion weaponRotation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,10 +24,7 @@ public class WeaponController : MonoBehaviour
 
         weaponPosition = player.transform.position;
         weaponRotation = player.transform.rotation;
-        
-        InvokeRepeating("SwordSpawn", 1, SwordSpawnTime);
-        InvokeRepeating("MaceSpawn", 1, MaceSpawnTime);
-        InvokeRepeating("ArrowSpawn", 1, ArrowSpawnTime);
+       
     }
 
     // Update is called once per frame
@@ -43,44 +38,12 @@ public class WeaponController : MonoBehaviour
         }
     }
 
-    void SwordSpawn()
+    public void UpdateCDR(int increaseAmount)
     {
-        Quaternion WeaponRotation = Quaternion.Euler(-90, 0, 0);
-        Vector3 WeaponPosition = weaponPosition;
-
-
-        GameObject spawnedSword = Instantiate(SwordPrefab, WeaponPosition, WeaponRotation)
-        as GameObject;
-
-        spawnedSword.transform.parent = gameObject.transform;
-    }
-    
-    void MaceSpawn()
-    {
-        Quaternion WeaponRotation = weaponRotation; 
-        WeaponRotation *= Quaternion.Euler(0, -90, 0);
-        Vector3 WeaponPosition = new Vector3(player.transform.position.x + 2f, 
-            player.transform.position.y, player.transform.position.z);
-        
-        GameObject spawnedMace = Instantiate(MacePrefab, WeaponPosition, WeaponRotation)
-            as GameObject;
-
-        spawnedMace.transform.parent = gameObject.transform;
+        abilityHaste += increaseAmount;
+        float coolDownMultipler = 1f - (1f / (1f + (abilityHaste / 100f)));
+        Debug.Log("coolDownMultipler: " + (coolDownMultipler * 100f) + "%");
     }
 
-    void ArrowSpawn()
-    {
-        Quaternion WeaponRotation = weaponRotation;
-        WeaponRotation *= Quaternion.Euler(-90, 0, 0);
-        Vector3 WeaponPosition = new Vector3(transform.position.x + 1.5f, transform.position.y, transform.position.z);
-        
-        GameObject spawnedArrow = Instantiate(ArrowPrefab, WeaponPosition, WeaponRotation)
-            as GameObject;
 
-        Rigidbody rb = spawnedArrow.GetComponent<Rigidbody>();
-        
-        rb.AddForce(player.transform.forward * 2000, ForceMode.Acceleration);
-
-        spawnedArrow.transform.parent = gameObject.transform;
-    }
 }

@@ -38,6 +38,11 @@ public class KnifeBehavior : MonoBehaviour
             var NormalEnemyHitScript = other.GetComponent<NormalEnemyHit>();
             NormalEnemyHitScript.TakeDamage(ATKDamage);
         }
+        if (other.CompareTag("Boss_Fire"))
+        {
+            var BossHitScript = other.GetComponent<Boss_Fire_Health>();
+            BossHitScript.TakeDamage(ATKDamage);
+        }
 
     }
 
