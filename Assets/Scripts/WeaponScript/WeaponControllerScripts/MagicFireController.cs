@@ -103,6 +103,6 @@ public class MagicFireController : MonoBehaviour
 
     void MasterWorkUpgrade()
     {
-        SwordBehavior.MasterWork = true;
+        MagicFireBehavior.MasterWork = true;
     }
 }

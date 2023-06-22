@@ -7139,6 +7139,10 @@ PrefabInstance:
       propertyPath: WeaponIconMask
       value: 
       objectReference: {fileID: 1516869095}
+    - target: {fileID: 1104995087, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1104995089, guid: 9e2c3d2fe19654a6794379085fbe4191, type: 3}
       propertyPath: WeaponIconMask
       value: 
@@ -10508,6 +10512,26 @@ PrefabInstance:
       propertyPath: WeaponControllerSelf
       value: 
       objectReference: {fileID: 1986385693}
+    - target: {fileID: 2476736379035785365, guid: f8357716e9140b345b9526dd171e74bc, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476736379035785366, guid: f8357716e9140b345b9526dd171e74bc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476736379035785366, guid: f8357716e9140b345b9526dd171e74bc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476736379035785366, guid: f8357716e9140b345b9526dd171e74bc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2476736379035785366, guid: f8357716e9140b345b9526dd171e74bc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2476736379376759376, guid: f8357716e9140b345b9526dd171e74bc, type: 3}
       propertyPath: WeaponControllerSelf
       value: 

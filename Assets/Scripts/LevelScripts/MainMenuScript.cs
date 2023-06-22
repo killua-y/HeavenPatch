@@ -23,8 +23,7 @@ public class MainMenuScript : MonoBehaviour
 
     public void StartGame()
     {
-        //PlayerPrefs.SetFloat("TimePlayed", timer);
-        //PlayerPrefs.Save();
+        PlayerPrefs.SetFloat("TimePlayed", timer);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
