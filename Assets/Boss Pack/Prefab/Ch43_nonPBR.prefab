@@ -1614,7 +1614,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3821bd11f1e6b4673ab8c29d475aae8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 450
   deadSFX: {fileID: 8300000, guid: b7a210df23bd255428bdf4def67109f2, type: 3}
   healthSlider: {fileID: 8904135957275246862}
   currentHealth: 0

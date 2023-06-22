@@ -21,7 +21,7 @@ public class MaceExplosionBehavior : MonoBehaviour
         currentScale = originalScale * WeaponController.scaleMultipler;
         gameObject.transform.localScale = currentScale;
 
-        Destroy(gameObject, 0.4f);
+        Destroy(gameObject, 0.2f);
     }
 
     // Update is called once per frame

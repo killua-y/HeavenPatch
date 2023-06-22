@@ -87,17 +87,9 @@ public class MagicFireBehavior : MonoBehaviour
             
             if (MasterWork)
             {
-                // 如果是最后一下爆炸那就造成完伤害删除自己
-                if (explosionNumber == 1)
-                {
-                    FinalExplosion();
-                    Destroy(gameObject);
-                }
-                else
-                {
-                    Explosion();
-                    explosionNumber--;
-                }
+                //因为是击中了boss所以直接进行最终爆炸
+                FinalExplosion();
+                Destroy(gameObject);
             }
             else
             {

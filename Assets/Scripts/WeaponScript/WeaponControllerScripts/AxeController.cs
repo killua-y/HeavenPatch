@@ -6,9 +6,10 @@ using UnityEngine.UI;
 public class AxeController : MonoBehaviour
 {
     public GameObject AxePrefab;
-    public Image AxeIconMask;
+    public Image WeaponIconMask;
     public Transform player;
 
+    public static bool isActive = false;
     public static bool doubleCast = false;
     public static int BasicDamgeMultipler = 1;
 
@@ -19,6 +20,16 @@ public class AxeController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!isActive)
+        {
+            gameObject.SetActive(false);
+            WeaponIconMask.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            WeaponIconMask.transform.parent.gameObject.SetActive(true);
+        }
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -27,7 +38,7 @@ public class AxeController : MonoBehaviour
         originalScale = new Vector3(3, 3, 3);
         AxeSpawn();
         timer = 0;
-        AxeIconMask.fillAmount = 1;
+        WeaponIconMask.fillAmount = 1;
     }
 
     // Update is called once per frame
@@ -36,7 +47,7 @@ public class AxeController : MonoBehaviour
         if(!GameStateManager.isPaused)
         {
             timer += Time.deltaTime;
-            AxeIconMask.fillAmount = (currentCoolDown - timer) / currentCoolDown;
+            WeaponIconMask.fillAmount = (currentCoolDown - timer) / currentCoolDown;
 
             if (timer >= currentCoolDown)
             {
@@ -47,7 +58,7 @@ public class AxeController : MonoBehaviour
                 }
 
                 timer = 0;
-                AxeIconMask.fillAmount = 1;
+                WeaponIconMask.fillAmount = 1;
                 currentCoolDown = originalCoolDown * WeaponController.coolDownMultipler;
             }
         }
@@ -81,5 +92,10 @@ public class AxeController : MonoBehaviour
     void MasterWorkUpgrade()
     {
         AxeBehavior.MasterWork = true;
+    }
+
+    public void AcquireWeapon()
+    {
+        isActive = true;
     }
 }

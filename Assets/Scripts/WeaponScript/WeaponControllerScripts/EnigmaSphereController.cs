@@ -8,6 +8,7 @@ public class EnigmaSphereController : MonoBehaviour
     public GameObject WeaponPrefab;
     public Image WeaponIconMask;
 
+    public static bool isActive = false;
     public static bool doubleCast = false;
     public static int BasicDamgeMultipler = 1;
 
@@ -17,8 +18,17 @@ public class EnigmaSphereController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!isActive)
+        {
+            gameObject.SetActive(false);
+            WeaponIconMask.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            WeaponIconMask.transform.parent.gameObject.SetActive(true);
+        }
+
         currentCoolDown = originalCoolDown;
-        WeaponSpawn();
         timer = 0;
         WeaponIconMask.fillAmount = 1;
     }
@@ -36,7 +46,7 @@ public class EnigmaSphereController : MonoBehaviour
             // 如果doubleCast变成了true那就会连续释放两次技能
             if (doubleCast)
             {
-                Invoke("SwordSpawn", 0.5f);
+                Invoke("WeaponSpawn", 0.5f);
             }
 
             timer = 0;
@@ -69,6 +79,11 @@ public class EnigmaSphereController : MonoBehaviour
     void MasterWorkUpgrade()
     {
         EnigmaSphereBehavior.MasterWork = true;
+    }
+
+    public void AcquireWeapon()
+    {
+        isActive = true;
     }
 
 }

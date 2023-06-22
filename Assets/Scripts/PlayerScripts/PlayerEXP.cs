@@ -9,15 +9,15 @@ public class PlayerEXP : MonoBehaviour
     public Slider expSlider;
     public Text levelText;
     public static float expRate = 1;
-    private int playerLevel;
+    private static int playerLevel;
     private float currentEXP;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentEXP = 0;
-        playerLevel = 0;
+        EXPToUpgrade = playerLevel + 3;
         expSlider.maxValue = EXPToUpgrade;
+        currentEXP = 0;
         expSlider.value = currentEXP;
         levelText.text = playerLevel.ToString();
     }

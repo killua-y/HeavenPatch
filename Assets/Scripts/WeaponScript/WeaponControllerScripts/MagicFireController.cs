@@ -9,7 +9,8 @@ public class MagicFireController : MonoBehaviour
     public Image WeaponIconMask;
     public Transform player;
 
-    public static bool doubleCast = false;
+    public static bool isActive = true;
+    public static bool doubleCast = true;
     public static int BasicDamgeMultipler = 1;
 
     public static float WeaponNumber = 4f; // Number of function calls
@@ -21,6 +22,16 @@ public class MagicFireController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!isActive)
+        {
+            gameObject.SetActive(false);
+            WeaponIconMask.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            WeaponIconMask.transform.parent.gameObject.SetActive(true);
+        }
+
         // 获取player的位置和转向
         if (player == null)
         {
@@ -104,5 +115,10 @@ public class MagicFireController : MonoBehaviour
     void MasterWorkUpgrade()
     {
         MagicFireBehavior.MasterWork = true;
+    }
+
+    public void AcquireWeapon()
+    {
+        isActive = true;
     }
 }

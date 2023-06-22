@@ -56,17 +56,20 @@ public class NPCInteractable : MonoBehaviour
             player.GetComponent<PlayerInteract>().playerInteractButton.SetActive(true);
             //player.GetComponent<CharacterController>().enabled = true;
             if(!isDestroyed){
-                Destroy(gate, 0.5f);
-                Instantiate(gateVFX, gate.transform.position, gate.transform.rotation);
+                if(gate != null)
+                {
+                    Destroy(gate, 0.5f);
+                    Instantiate(gateVFX, gate.transform.position, gate.transform.rotation);
+                }
                 isDestroyed = true;
             }
-            Destroy(gameObject, 0.5f);
+            Destroy(gameObject);
             Instantiate(nuwaVFX, transform.position, transform.rotation);
         }
     }
     
     void NewDialogue(string next){
-        Debug.Log("Start Dialogue");
+        //Debug.Log("Start Dialogue");
         dialogueText.text = next;
         nameText.text = NpcName;
         NPCTextSystem.SetActive(true);

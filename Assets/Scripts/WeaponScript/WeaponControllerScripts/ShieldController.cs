@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class ShieldController : MonoBehaviour
 {
+    public static bool isActive = false;
     public static bool doubleCast = false;
     public static int BasicDamgeMultipler = 1;
 
     public GameObject ShieldPrefab;
-    public Image ShieldIconMask;
+    public Image WeaponIconMask;
     public Transform player;
 
     Vector3 originalScale;
@@ -19,6 +20,16 @@ public class ShieldController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!isActive)
+        {
+            gameObject.SetActive(false);
+            WeaponIconMask.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            WeaponIconMask.transform.parent.gameObject.SetActive(true);
+        }
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -29,7 +40,7 @@ public class ShieldController : MonoBehaviour
 
         ShieldSpawn();
         timer = 0;
-        ShieldIconMask.fillAmount = 1;
+        WeaponIconMask.fillAmount = 1;
     }
 
     // Update is called once per frame
@@ -42,7 +53,7 @@ public class ShieldController : MonoBehaviour
                 originalScale *= 1.5f;
             }
             timer += Time.deltaTime;
-            ShieldIconMask.fillAmount = (currentCoolDown - timer) / currentCoolDown;
+            WeaponIconMask.fillAmount = (currentCoolDown - timer) / currentCoolDown;
 
             if (timer >= currentCoolDown)
             {
@@ -53,7 +64,7 @@ public class ShieldController : MonoBehaviour
                 }
 
                 timer = 0;
-                ShieldIconMask.fillAmount = 1;
+                WeaponIconMask.fillAmount = 1;
                 currentCoolDown = originalCoolDown * WeaponController.coolDownMultipler;
             }
         }
@@ -89,5 +100,9 @@ public class ShieldController : MonoBehaviour
     void MasterWorkUpgrade()
     {
         SwordBehavior.MasterWork = true;
+    }
+    public void AcquireWeapon()
+    {
+        isActive = true;
     }
 }

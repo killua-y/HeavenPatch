@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class ArrowsController : MonoBehaviour
 {
+    public static bool isActive = false;
     public static bool doubleCast = false;
     public static int BasicDamgeMultipler = 1;
     
     public GameObject ArrowsPrefab;
-    public Image ArrowsIconMask;
+    public Image WeaponIconMask;
     public Transform player;
 
     Vector3 originalScale;
@@ -19,6 +20,16 @@ public class ArrowsController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!isActive)
+        {
+            gameObject.SetActive(false);
+            WeaponIconMask.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            WeaponIconMask.transform.parent.gameObject.SetActive(true);
+        }
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -29,7 +40,7 @@ public class ArrowsController : MonoBehaviour
 
         ArrowSpawn();
         timer = 0;
-        ArrowsIconMask.fillAmount = 1;
+        WeaponIconMask.fillAmount = 1;
     }
 
     // Update is called once per frame
@@ -38,7 +49,7 @@ public class ArrowsController : MonoBehaviour
         if (!GameStateManager.isPaused)
         {
             timer += Time.deltaTime;
-            ArrowsIconMask.fillAmount = (currentCoolDown - timer) / currentCoolDown;
+            WeaponIconMask.fillAmount = (currentCoolDown - timer) / currentCoolDown;
 
             if (timer >= currentCoolDown)
             {
@@ -53,7 +64,7 @@ public class ArrowsController : MonoBehaviour
                     Invoke("ArrowSpawn", 1f);
                 }
                 timer = 0;
-                ArrowsIconMask.fillAmount = 1;
+                WeaponIconMask.fillAmount = 1;
                 currentCoolDown = originalCoolDown * WeaponController.coolDownMultipler;
             }
         }
@@ -91,6 +102,11 @@ public class ArrowsController : MonoBehaviour
 
     void MasterWorkUpgrade()
     {
-        AxeBehavior.MasterWork = true;
+        ArrowBehavior.MasterWork = true;
+    }
+
+    public void AcquireWeapon()
+    {
+        isActive = true;
     }
 }

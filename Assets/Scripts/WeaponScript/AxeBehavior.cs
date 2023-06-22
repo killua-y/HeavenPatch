@@ -47,19 +47,20 @@ public class AxeBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        //Debug.Log("hit enemy");
-        if(other.CompareTag("Enemy"))
+        // 施加伤害修正
+        float newDamge = ATKDamage * WeaponController.damgeMultipler * AxeController.BasicDamgeMultipler;
+        int newDamgeInt = Mathf.RoundToInt(newDamge);
+
+        if (MasterWork)
         {
-            // 施加伤害修正
-            float newDamge = ATKDamage * WeaponController.damgeMultipler * AxeController.BasicDamgeMultipler;
-            int newDamgeInt = Mathf.RoundToInt(newDamge);
-            
-            if (MasterWork)
-            {
-                rotationSpeed *= 2;
-                KnockBackForce *= 2;
-                newDamgeInt *= 2;
-            }
+            rotationSpeed *= 1.2f;
+            KnockBackForce *= 2;
+            newDamgeInt *= 2;
+        }
+
+        //Debug.Log("hit enemy");
+        if (other.CompareTag("Enemy"))
+        {
 
             var NormalEnemyHitScript = other.GetComponent<NormalEnemyHit>();
             NormalEnemyHitScript.TakeDamage(newDamgeInt);
@@ -73,6 +74,9 @@ public class AxeBehavior : MonoBehaviour
         {
             var BossHitScript = other.GetComponent<Boss_Fire_Health>();
             BossHitScript.TakeDamage(ATKDamage);
+
+            // 让斧头转回来
+            Invoke("BackToPlayer", 1);
         }
 
         if (other.CompareTag("Player"))

@@ -21,7 +21,12 @@ public class Boss_Fire_Health : MonoBehaviour
     void Start()
     {
         currentHealth = startingHealth;
+        healthSlider.maxValue = currentHealth;
         healthSlider.value = currentHealth;
+
+        // 帮助玩家收集其他的gem
+        GemPickup.collectDistance = 300;
+        Invoke("FinishCollectGem", 2f);
     }
 
     // Update is called once per frame
@@ -59,5 +64,10 @@ public class Boss_Fire_Health : MonoBehaviour
         //Debug.Log("AAA");
         AudioSource.PlayClipAtPoint(deadSFX, transform.position);
         FindObjectOfType<LevelManager>().LevelBeat();
+    }
+
+    void FinishCollectGem()
+    {
+        GemPickup.collectDistance = 3;
     }
 }

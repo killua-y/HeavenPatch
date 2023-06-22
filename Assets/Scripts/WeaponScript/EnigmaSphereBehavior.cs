@@ -50,6 +50,10 @@ public class EnigmaSphereBehavior : MonoBehaviour
         if (nextTarget == null)
         {
             nextTarget = FindNextTarget();
+            if(nextTarget == null)
+            {
+                nextTarget = GameObject.FindGameObjectWithTag("Boss_Fire");
+            }
         }
         else
         {
@@ -89,6 +93,8 @@ public class EnigmaSphereBehavior : MonoBehaviour
         {
             var BossHitScript = other.GetComponent<Boss_Fire_Health>();
             BossHitScript.TakeDamage(newDamgeInt);
+
+
             if (explosionNumber >= 1)
             {
                 explosionPrefab.transform.localScale = transform.localScale;

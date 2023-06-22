@@ -83,38 +83,39 @@ public class EnemySpawnerController : MonoBehaviour
 
     void Level1EnemySpawn()
     {
-        // 当怪物还剩100 到 50
-        if (CurrentEnemyRemain == 100)
+        // 当怪物还剩200 到 150
+        if (CurrentEnemyRemain == 200)
         {
             // 生成蜘蛛形怪物
             SpiderSpawner.SetActive(true);
-            SpiderSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(3f);
+            SpiderSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.6f);
 
             // 生成狼形怪物
-            WolfSpawner.SetActive(true);
-            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(3f);
+            WolfSpawner.SetActive(false);
         }
-        // 当怪物还剩50 到 25
-        else if (CurrentEnemyRemain == 50)
+        // 当怪物还剩150 到 100
+        else if (CurrentEnemyRemain == 150)
         {
             // 停止生成蜘蛛形怪物
-            SpiderSpawner.SetActive(false);
+            SpiderSpawner.SetActive(true);
+            SpiderSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(1f);
 
             // 生成狼形怪物
             WolfSpawner.SetActive(true);
-            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.3f);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(1f);
 
             // 停止生成弓箭手怪物
             ArcherSpawner.SetActive(false);
         }
-        // 当怪物还剩25 到 0
-        else if (CurrentEnemyRemain == 25)
+        // 当怪物还剩100 到 0
+        else if (CurrentEnemyRemain == 100)
         {
             // 提高怪物血量
             EnemyHealthMultipler = 2;
 
-            // 停止生成蜘蛛形怪物
-            SpiderSpawner.SetActive(false);
+            // 生成蜘蛛形怪物
+            SpiderSpawner.SetActive(true);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(1f);
 
             // 生成狼形怪物
             WolfSpawner.SetActive(true);
@@ -124,8 +125,24 @@ public class EnemySpawnerController : MonoBehaviour
             ArcherSpawner.SetActive(true);
             WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(1f);
         }
+        else if (CurrentEnemyRemain == 50)
+        {
+            // 提高怪物血量
+            EnemyHealthMultipler = 3;
+
+            // 停止蜘蛛形怪物
+            SpiderSpawner.SetActive(false);
+
+            // 生成狼形怪物
+            WolfSpawner.SetActive(true);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.2f);
+
+            // 生成弓箭手怪物
+            ArcherSpawner.SetActive(true);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.6f);
+        }
         // 当怪物还剩0，游戏胜利，停止生成怪物
-        else if (CurrentEnemyRemain == 0)
+        else if (CurrentEnemyRemain <= 0)
         {
             gameObject.SetActive(false);
 
@@ -135,91 +152,11 @@ public class EnemySpawnerController : MonoBehaviour
 
     void Level2EnemySpawn()
     {
-        // 当怪物还剩150 到 100
-        if (CurrentEnemyRemain == 150)
+        // 当怪物还剩200 到 150
+        if (CurrentEnemyRemain == 200)
         {
-            // 生成蜘蛛形怪物
-            SpiderSpawner.SetActive(true);
-            SpiderSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(3f);
+            EnemySpawner.MaxEnemyOnBoard = 50;
 
-            // 生成狼形怪物
-            WolfSpawner.SetActive(true);
-            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(3f);
-
-        }
-        // 当怪物还剩100 到 50
-        else if (CurrentEnemyRemain == 100)
-        {
-            // 生成蜘蛛形怪物
-            SpiderSpawner.SetActive(true);
-            SpiderSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(2f);
-
-            // 生成狼形怪物
-            WolfSpawner.SetActive(true);
-            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(2f);
-
-        }
-        // 当怪物还剩50 到 25
-        else if (CurrentEnemyRemain == 50)
-        {
-            // 提高怪物血量
-            EnemyHealthMultipler = 2;
-
-            // 停止生成蜘蛛形怪物
-            SpiderSpawner.SetActive(false);
-
-            // 生成狼形怪物
-            WolfSpawner.SetActive(true);
-            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.3f);
-
-            // 停止生成弓箭手怪物
-            ArcherSpawner.SetActive(false);
-        }
-        // 当怪物还剩25 到 0
-        else if (CurrentEnemyRemain == 25)
-        {
-            // 提高怪物血量
-            EnemyHealthMultipler = 2;
-
-            // 停止生成蜘蛛形怪物
-            SpiderSpawner.SetActive(false);
-
-            // 生成狼形怪物
-            WolfSpawner.SetActive(true);
-            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.3f);
-
-            // 生成弓箭手怪物
-            ArcherSpawner.SetActive(true);
-            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(1f);
-        }
-        // 当怪物还剩0，游戏胜利，停止生成怪物
-        else if (CurrentEnemyRemain == 0)
-        {
-            gameObject.SetActive(false);
-
-            // 生成boss
-
-            Instantiate(BossPrefab, transform.position, transform.rotation);
-        }
-    }
-
-    void Level3EnemySpawn()
-    {
-        // 当怪物还剩300 到 200
-        if (CurrentEnemyRemain == 300)
-        {
-            // 生成蜘蛛形怪物
-            SpiderSpawner.SetActive(true);
-            SpiderSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(2f);
-
-            // 生成狼形怪物
-            WolfSpawner.SetActive(true);
-            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(2f);
-
-        }
-        // 当怪物还剩200 到 100
-        else if (CurrentEnemyRemain == 200)
-        {
             // 生成蜘蛛形怪物
             SpiderSpawner.SetActive(true);
             SpiderSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(1f);
@@ -229,11 +166,26 @@ public class EnemySpawnerController : MonoBehaviour
             WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(1f);
 
         }
-        // 当怪物还剩 100 到 50
+        // 当怪物还剩150 到 100
+        else if (CurrentEnemyRemain == 150)
+        {
+            // 生成蜘蛛形怪物
+            SpiderSpawner.SetActive(true);
+            SpiderSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(1f);
+
+            // 生成狼形怪物
+            WolfSpawner.SetActive(true);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.4f);
+
+        }
+        // 当怪物还剩100 到 50
         else if (CurrentEnemyRemain == 100)
         {
-            // 提高怪物血量
-            EnemyHealthMultipler = 2;
+            // 提高怪物血量(如果是从上一个level过来的)
+            if(EnemyHealthMultipler >= 2)
+            {
+                EnemyHealthMultipler = 4;
+            }
 
             // 停止生成蜘蛛形怪物
             SpiderSpawner.SetActive(false);
@@ -245,25 +197,128 @@ public class EnemySpawnerController : MonoBehaviour
             // 停止生成弓箭手怪物
             ArcherSpawner.SetActive(false);
         }
-        // 当怪物还剩50 到 0
+        // 当怪物还剩50 到 25
         else if (CurrentEnemyRemain == 50)
         {
-            // 提高怪物血量
-            EnemyHealthMultipler = 2;
+            // 停止生成蜘蛛形怪物
+            SpiderSpawner.SetActive(false);
+
+            // 生成狼形怪物
+            WolfSpawner.SetActive(true);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.2f);
+
+            // 停止生成弓箭手怪物
+            ArcherSpawner.SetActive(false);
+        }
+        // 当怪物还剩25 到 0
+        else if (CurrentEnemyRemain == 25)
+        {
+            // 提高怪物血量(如果是从上一个level过来的)
+            if (EnemyHealthMultipler >= 2)
+            {
+                EnemyHealthMultipler = 5;
+            }
+
+            // 停止生成蜘蛛形怪物
+            SpiderSpawner.SetActive(false);
+
+            // 生成狼形怪物
+            Debug.Log("Gethere");
+            WolfSpawner.SetActive(true);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.1f);
+
+            // 生成弓箭手怪物
+            ArcherSpawner.SetActive(true);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.5f);
+        }
+        // 当怪物还剩0，游戏胜利，停止生成怪物
+        else if (CurrentEnemyRemain <= 0)
+        {
+            gameObject.SetActive(false);
+
+            // 生成boss
+            Instantiate(BossPrefab, transform.position, transform.rotation);
+        }
+    }
+
+    void Level3EnemySpawn()
+    {
+        // 当怪物还剩300 到 200
+        if (CurrentEnemyRemain == 300)
+        {
+            EnemySpawner.MaxEnemyOnBoard = 60;
+
+            // 生成蜘蛛形怪物
+            SpiderSpawner.SetActive(true);
+            SpiderSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.6f);
+
+            // 生成狼形怪物
+            WolfSpawner.SetActive(true);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.6f);
+
+            // 生成弓箭手怪物
+            ArcherSpawner.SetActive(true);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(1f);
+
+        }
+        // 当怪物还剩200 到 100
+        else if (CurrentEnemyRemain == 200)
+        {
+            // 提高怪物血量(如果是从上一个level过来的)
+            if (EnemyHealthMultipler >= 2)
+            {
+                EnemyHealthMultipler = 6;
+            }
+
+            // 生成蜘蛛形怪物
+            SpiderSpawner.SetActive(true);
+            SpiderSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.6f);
+
+            // 生成狼形怪物
+            WolfSpawner.SetActive(true);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.6f);
+
+            // 生成弓箭手怪物
+            ArcherSpawner.SetActive(true);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.6f);
+
+        }
+        // 当怪物还剩 100 到 50
+        else if (CurrentEnemyRemain == 100)
+        {
 
             // 停止生成蜘蛛形怪物
             SpiderSpawner.SetActive(false);
 
             // 生成狼形怪物
             WolfSpawner.SetActive(true);
-            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.3f);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.1f);
+
+            // 停止生成弓箭手怪物
+            ArcherSpawner.SetActive(false);
+        }
+        // 当怪物还剩50 到 0
+        else if (CurrentEnemyRemain == 50)
+        {
+            // 提高怪物血量(如果是从上一个level过来的)
+            if (EnemyHealthMultipler >= 2)
+            {
+                EnemyHealthMultipler = 7;
+            }
+
+            // 停止生成蜘蛛形怪物
+            SpiderSpawner.SetActive(false);
+
+            // 生成狼形怪物
+            WolfSpawner.SetActive(true);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.1f);
 
             // 生成弓箭手怪物
             ArcherSpawner.SetActive(true);
-            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(1f);
+            WolfSpawner.GetComponent<EnemySpawner>().UpdateSpwanTime(0.6f);
         }
         // 当怪物还剩0，游戏胜利，停止生成怪物
-        else if (CurrentEnemyRemain == 0)
+        else if (CurrentEnemyRemain <= 0)
         {
             gameObject.SetActive(false);
 

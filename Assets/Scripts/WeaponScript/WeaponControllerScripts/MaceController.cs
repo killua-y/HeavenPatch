@@ -6,18 +6,30 @@ using UnityEngine.UI;
 public class MaceController : MonoBehaviour
 {
     public GameObject MacePrefab;
-    public Image MaceIconMask;
+    public Image WeaponIconMask;
     public Transform player;
 
+    public static bool isActive = false;
     public static bool doubleCast = false;
     public static int BasicDamgeMultipler = 1;
 
     float originalCoolDown = 4f;
     float currentCoolDown;
     float timer;
+
     // Start is called before the first frame update
     void Start()
     {
+        if (!isActive)
+        {
+            gameObject.SetActive(false);
+            WeaponIconMask.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            WeaponIconMask.transform.parent.gameObject.SetActive(true);
+        }
+
         if (player == null)
         {
             player = GameObject.FindGameObjectWithTag("Player").transform;
@@ -26,7 +38,7 @@ public class MaceController : MonoBehaviour
         currentCoolDown = originalCoolDown;
         MaceSpawn();
         timer = 0;
-        MaceIconMask.fillAmount = 1;
+        WeaponIconMask.fillAmount = 1;
     }
 
     // Update is called once per frame
@@ -35,7 +47,7 @@ public class MaceController : MonoBehaviour
         if (!GameStateManager.isPaused)
         {
             timer += Time.deltaTime;
-            MaceIconMask.fillAmount = (currentCoolDown - timer) / currentCoolDown;
+            WeaponIconMask.fillAmount = (currentCoolDown - timer) / currentCoolDown;
 
             if (timer >= currentCoolDown)
             {
@@ -48,7 +60,7 @@ public class MaceController : MonoBehaviour
                 }
 
                 timer = 0;
-                MaceIconMask.fillAmount = 1;
+                WeaponIconMask.fillAmount = 1;
                 currentCoolDown = originalCoolDown * WeaponController.coolDownMultipler;
             }
         }
@@ -80,5 +92,10 @@ public class MaceController : MonoBehaviour
     void MasterWorkUpgrade()
     {
         MaceBehavior.MasterWork = true;
+    }
+
+    public void AcquireWeapon()
+    {
+        isActive = true;
     }
 }

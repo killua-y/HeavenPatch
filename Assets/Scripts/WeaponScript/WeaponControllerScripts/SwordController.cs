@@ -8,6 +8,7 @@ public class SwordController : MonoBehaviour
     public GameObject WeaponPrefab;
     public Image WeaponIconMask;
 
+    public static bool isActive = true;
     public static bool doubleCast = false;
     public static int BasicDamgeMultipler = 1;
 
@@ -17,6 +18,16 @@ public class SwordController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (!isActive)
+        {
+            gameObject.SetActive(false);
+            WeaponIconMask.transform.parent.gameObject.SetActive(false);
+        }
+        else
+        {
+            WeaponIconMask.transform.parent.gameObject.SetActive(true);
+        }
+
         currentCoolDown = originalCoolDown;
         SwordSpawn();
         timer = 0;
@@ -71,5 +82,10 @@ public class SwordController : MonoBehaviour
     void MasterWorkUpgrade()
     {
         SwordBehavior.MasterWork = true;
+    }
+
+    public void AcquireWeapon()
+    {
+        isActive = true;
     }
 }
