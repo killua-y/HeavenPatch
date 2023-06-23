@@ -64,6 +64,7 @@ public class PauseMenuBehavior : MonoBehaviour
     public void RestartGame()
     {
         SceneManager.LoadScene(0);
+        isGamePaused = false;
     }
 
     public void SaveTimer()

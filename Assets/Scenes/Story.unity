@@ -616,7 +616,6 @@ GameObject:
   - component: {fileID: 1210282005}
   - component: {fileID: 1210282008}
   - component: {fileID: 1210282007}
-  - component: {fileID: 1210282006}
   m_Layer: 5
   m_Name: Story
   m_TagString: Untagged
@@ -644,22 +643,6 @@ RectTransform:
   m_AnchoredPosition: {x: 448, y: -26.3}
   m_SizeDelta: {x: 1500, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1210282006
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210282004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00cdca7048da542118ad2ea1c65d9466, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nextPage: {fileID: 0}
-  pageText: {fileID: 0}
-  nextButton: {fileID: 0}
-  buttonText: {fileID: 0}
 --- !u!114 &1210282007
 MonoBehaviour:
   m_ObjectHideFlags: 0

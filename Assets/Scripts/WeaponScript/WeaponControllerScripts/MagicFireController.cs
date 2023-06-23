@@ -9,7 +9,7 @@ public class MagicFireController : MonoBehaviour
     public Image WeaponIconMask;
     public Transform player;
 
-    public static bool isActive = true;
+    public static bool isActive = false;
     public static bool doubleCast = true;
     public static int BasicDamgeMultipler = 1;
 
